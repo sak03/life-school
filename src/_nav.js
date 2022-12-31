@@ -5,6 +5,7 @@ import {
   FaUserFriends,
   FaRegAddressCard,
   FaUser,
+  FaSuitcase,
 } from "react-icons/fa";
 
 const _nav = {
@@ -27,6 +28,12 @@ const _nav = {
       to: '/students',
       icon: <FaUserFriends className="nav-icon" title="Students" />,
     },
+    {
+      component: CNavItem,
+      name: 'Careers',
+      to: '/careers',
+      icon: <FaSuitcase className="nav-icon" title="Careers" />,
+    },
   ],
   teacher_nav: [
     {
@@ -40,6 +47,12 @@ const _nav = {
       name: 'Students',
       to: '/students',
       icon: <FaUserFriends className="nav-icon" title="Students" />,
+    },
+    {
+      component: CNavItem,
+      name: 'Profile',
+      to: '/teacher-profile',
+      icon: <FaUser className="nav-icon" title="Profile" />,
     },
   ],
   student_nav:[

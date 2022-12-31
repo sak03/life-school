@@ -8,23 +8,25 @@ import Backouts from './tabs/RejectedStudents';
 
 
 const Students = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const userMode = localStorage.getItem('userMode');
 
 
   return (
     <div>
       <TabView>
-        <TabPanel header="All Students">
-          <CandidatesTab />
+        <TabPanel header={userMode == 1 ? "All Students" :
+          userMode == 2 ? "Class Students" : ""}>
+          {userMode == 1 || userMode == 2 ? <CandidatesTab /> : ""}
         </TabPanel>
-        <TabPanel header="Offered Students">
+        {userMode == 1 ? <TabPanel header="Offered Students">
           <Offered />
-        </TabPanel>
-        <TabPanel header="Joined Students">
+        </TabPanel> : ""}
+        {userMode == 1 ? <TabPanel header="Joined Students">
           <JoinedTab />
-        </TabPanel>
-        <TabPanel header="Rejected Students">
-          <Backouts />
+        </TabPanel> : ""}
+        <TabPanel header={userMode == 1 ? "Rejected Students" :
+          userMode == 2 ? "Absent Students" : ""}>
+          {userMode == 1 || userMode == 2 ? <Backouts /> : ""}
         </TabPanel>
       </TabView>
     </div>

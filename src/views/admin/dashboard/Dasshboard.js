@@ -214,6 +214,84 @@ const Dasshboard = () => {
         },
     ]);
 
+    const classSchedule = [
+        {
+            days:"Monday",
+            subject:"Maths",
+            time:"9:30 am",
+            class:"IX"
+        },
+        {
+            days:"Tuesday",
+            subject:"Maths",
+            time:"10:30 am",
+            class:"X"
+        },
+        {
+            days:"Wednesday",
+            subject:"Science",
+            time:"11:30 am",
+            class:"IX"
+        },
+        {
+            days:"Thursday",
+            subject:"Science",
+            time:"12:30 am",
+            class:"X"
+        },
+        {
+            days:"Friday",
+            subject:"English",
+            time:"2:30 am",
+            class:"IX"
+        },
+        {
+            days:"Saturday",
+            subject:"English",
+            time:"3:30 am",
+            class:"X"
+        },
+    ];
+
+    const classTimetable = [
+        {
+            days:"Monday",
+            subject:"Maths",
+            time:"9:30 am",
+            faculty:"Rakesh Yadav",
+        },
+        {
+            days:"Tuesday",
+            subject:"Maths",
+            time:"10:30 am",
+            faculty:"Prakash Singh",
+        },
+        {
+            days:"Wednesday",
+            subject:"Science",
+            time:"11:30 am",
+            faculty:"Zeeshan Alam",
+        },
+        {
+            days:"Thursday",
+            subject:"Science",
+            time:"12:30 am",
+            faculty:"Prakit Arora",
+        },
+        {
+            days:"Friday",
+            subject:"English",
+            time:"2:30 am",
+            faculty:"Preeti Singh",
+        },
+        {
+            days:"Saturday",
+            subject:"English",
+            time:"3:30 am",
+            faculty:"Pooja Shami",
+        },
+    ]
+
     const getActionButtons = () => {
         return (
 
@@ -228,7 +306,10 @@ const Dasshboard = () => {
     const renderHeader = () => {
         return (
             <div>
-                <h4>Interview Schedules</h4>
+                <h4>
+                    {userMode == 1 ? "Interview Schedules" :
+                        userMode == 2 ? "Class Schedule" : "Class Schedule"}
+                </h4>
             </div>
         )
     }
@@ -377,7 +458,7 @@ const Dasshboard = () => {
                     </div>
                 </div> : ""}
             {/* .............Third Paragraph interview table........... */}
-            <div className="row my-3 rounded dataTable">
+            <div className="row my-3 rounded dataTable mx-1">
                 {userMode == 1 ? <div className=" col-sm-12 col-md-12 col-lg-12 rounded dataTable">
                     <div className="cl-card rounded dataTable" style={{ borderRadius: "2rem" }}>
                         <DataTable
@@ -390,7 +471,7 @@ const Dasshboard = () => {
                             rows={10}
                             rowHover
                             stripedRows
-                            header="Interview Schedules"
+                            header={header1}
                             emptyMessage="No schedules found."
                         >
                             <Column field="name" header="Applicant Name"></Column>
@@ -410,7 +491,73 @@ const Dasshboard = () => {
                             ></Column>
                         </DataTable>
                     </div>
-                </div> :""}
+                </div> : userMode == 2 ?
+                    <div className="cl-card rounded dataTable" style={{ borderRadius: "2rem" }}>
+                        <DataTable
+                            value={classSchedule}
+                            responsiveLayout="scroll"
+                            className="p-datatable-customers"
+                            showGridlines={false}
+                            dataKey="id"
+                            filterDisplay="menu"
+                            rows={10}
+                            rowHover
+                            stripedRows
+                            header={header1}
+                            emptyMessage="No schedules found."
+                        >
+                            <Column
+                                field="days"
+                                header="Days"
+                            ></Column>
+                            <Column
+                                field="subject"
+                                header="Subject"
+                            ></Column>
+                            <Column
+                                field="time"
+                                header="Time"
+                            ></Column>
+                            <Column
+                                field="class"
+                                header="Class"
+                            ></Column>
+                        </DataTable>
+                    </div>
+                    :
+                    <div className="cl-card rounded dataTable" style={{ borderRadius: "2rem" }}>
+                        <DataTable
+                            value={classTimetable}
+                            responsiveLayout="scroll"
+                            className="p-datatable-customers"
+                            showGridlines={false}
+                            dataKey="id"
+                            filterDisplay="menu"
+                            rows={10}
+                            rowHover
+                            stripedRows
+                            header={header1}
+                            emptyMessage="No schedules found."
+                        >
+                            <Column
+                                field="days"
+                                header="Days"
+                            ></Column>
+                            <Column
+                                field="subject"
+                                header="Subject"
+                            ></Column>
+                            <Column
+                                field="time"
+                                header="Time"
+                            ></Column>
+                            <Column
+                                field="faculty"
+                                header="Faculty"
+                            ></Column>
+                        </DataTable>
+                    </div>
+                }
             </div>
         </div>
     )

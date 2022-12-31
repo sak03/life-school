@@ -4,8 +4,9 @@ import React from 'react'
 // ========= admin ============
 const Dashboard = React.lazy(() => import('./views/admin/dashboard/Dasshboard'))
 const Staff = React.lazy(()=>import('./views/admin/staff/Staff'))
-const Jobs = React.lazy(()=>import('./views/admin/jobs/Jobs'))
+const Careers = React.lazy(()=>import('./views/admin/careers/Careers'))
 const Students = React.lazy(() => import('./views/admin/students/Students'))
+const TeacherProfile =  React.lazy(() => import('./views/admin/teacher-profile/TeacherProfile'))
 const Profile = React.lazy(() => import('./views/admin/students-profile/Profile'))
 
 const routes = [
@@ -14,8 +15,9 @@ const routes = [
   // ============ admin ==============
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path : '/staff', name: 'Staff', element:Staff},
-  { path : '/jobs', name: 'Jobs', element:Jobs},
+  { path : '/careers', name: 'Careers', element:Careers},
   { path: '/students', name: "Students", element: Students },
+  { path: "/teacher-profile", name: "Profile", element: TeacherProfile },
   { path: "/students-profile", name: "Profile", element: Profile },
 ]
 
