@@ -334,8 +334,8 @@ const Careers = () => {
               <div className='card p-3'>
                 <strong className='mx-1 my-2'> Maths Teacher</strong>
                 <p className='mt-2'>
-                  <span ><FaBriefcase className='text-primary' /> 2-4 Years</span> &nbsp;
-                  <span><FaDollarSign className='text-warning' />4-6 LPA</span> &nbsp; &nbsp;
+                  <span ><FaBriefcase className='text-primary' /> 3-6 Years</span> &nbsp;
+                  <span><FaDollarSign className='text-warning' />6-8 LPA</span> &nbsp; &nbsp;
                   <span><FaMapMarkerAlt className='text-danger' /> On Site</span>
                 </p>
                 <p>
@@ -343,8 +343,8 @@ const Careers = () => {
                   <span>Looking for Smart and experience, having rich ...</span>
                 </p>
                 <p>
-                  <span><FaIdCard className='text-primary' /> </span>
-                  <span>Java, JavaScript, HTML, MySQL, Python</span>
+                  {/* <span><FaIdCard className='text-primary' /> </span> */}
+                  {/* <span>Java, JavaScript, HTML, MySQL, Python</span> */}
                 </p>
 
               </div>
@@ -353,8 +353,8 @@ const Careers = () => {
               <div className='card p-3'>
                 <strong className='mx-1 my-2'>Accountent</strong>
                 <p className='mt-2'>
-                  <span ><FaBriefcase className='text-primary' /> 2-4 Years</span> &nbsp;
-                  <span><FaDollarSign className='text-warning' />4-6 LPA</span> &nbsp; &nbsp;
+                  <span ><FaBriefcase className='text-primary' /> 1-3 Years</span> &nbsp;
+                  <span><FaDollarSign className='text-warning' />6-10 LPA</span> &nbsp; &nbsp;
                   <span><FaMapMarkerAlt className='text-danger' /> On Site</span>
                 </p>
                 <p>
@@ -362,8 +362,8 @@ const Careers = () => {
                   <span>Looking for Accountent, having rich exp…..</span>
                 </p>
                 <p>
-                  <span><FaIdCard className='text-primary' /> </span>
-                  <span>Java, JavaScript, HTML, MySQL, Python</span>
+                  {/* <span><FaIdCard className='text-primary' /> </span> */}
+                  {/* <span>Java, JavaScript, HTML, MySQL, Python</span> */}
                 </p>
 
               </div>
