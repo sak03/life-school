@@ -263,7 +263,7 @@ const Staff = () => {
                     style={{ justifyContent: "right" }}
                 >
                     <Button
-                        label="Add Tenant"
+                        label="Add Staff"
                         className="p-button-outlined p-button-primary p-button-md"
                         onClick={() => {
                             setEditMode(1);
@@ -278,19 +278,6 @@ const Staff = () => {
                         icon="pi pi-filter-slash"
                         label="Clear"
                         className="p-button-outlined p-button-md"
-                    // onClick={() => {
-                    //   searchFormik.resetForm();
-                    //   initFilters1();
-                    //   if (pageNumber !== 1) {
-                    //     setPageNumber(1);
-                    //   } else {
-                    //     getAllAccounts({
-                    //       dateRange: null,
-                    //       status: "",
-                    //       page: 1,
-                    //     });
-                    //   }
-                    // }}
                     />
                 </div>
             </div>
