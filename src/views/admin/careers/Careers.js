@@ -354,7 +354,7 @@ const Careers = () => {
                 <strong className='mx-1 my-2'>Accountent</strong>
                 <p className='mt-2'>
                   <span ><FaBriefcase className='text-primary' /> 1-3 Years</span> &nbsp;
-                  <span><FaDollarSign className='text-warning' />6-10 LPA</span> &nbsp; &nbsp;
+                  <span><FaDollarSign className='text-warning' />6-10  LPA</span> &nbsp; &nbsp;
                   <span><FaMapMarkerAlt className='text-danger' /> On Site</span>
                 </p>
                 <p>

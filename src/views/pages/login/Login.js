@@ -102,9 +102,9 @@ const Login = () => {
           className="login-logo"
           style={{ position: "absolute", top: "2rem", left: "2rem" }}
         >
-          <a href="http://www.acescan.co/" target="blank" placeholder="visit">
+          {/* <a href="http://www.acescan.co/" target="blank" placeholder="visit"> */}
             <img src={logo} alt="login" width={200} />
-          </a>
+          {/* </a> */}
         </div>
         <CContainer>
           <CRow className="justify-content-center border-0">
