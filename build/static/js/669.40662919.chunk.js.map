@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/669.40662919.chunk.js","mappings":"yMAQA,UANe,WACb,OACE,mCAEJ,C","sources":["views/admin/communications/legals/Legals.js"],"sourcesContent":["import React from 'react'\n\nconst Legals = () => {\n  return (\n    <div>Legals</div>\n  )\n}\n\nexport default Legals"],"names":[],"sourceRoot":""}

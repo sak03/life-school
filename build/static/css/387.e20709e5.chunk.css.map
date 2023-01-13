@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/387.e20709e5.chunk.css","mappings":"AAAA,aAEI,aAAc,CAEd,eAAgB,CADhB,cAAe,CAFf,YAIJ,CAEA,cACI,qBACJ","sources":["views/admin/tenant/tenant.css"],"sourcesContent":[".borderClass {\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-radius: 0;\n}\n\n.para-publish {\n    margin: 3px 10px 3px 0px;\n}"],"names":[],"sourceRoot":""}
