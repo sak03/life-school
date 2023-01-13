@@ -18,7 +18,7 @@ const Profile = () => {
           <div className=" ml-2">
             <img
               className="mr-2"
-              src='candidate1.jpeg'
+              src='student.jpg'
               width={125}
               shape="circle"
             />
