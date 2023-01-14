@@ -9,10 +9,13 @@ import {
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { MdAssignment } from "react-icons/md";
+import { useSelector } from "react-redux";
 import "./dashboard.css";
 import Chart from 'react-apexcharts'
 
 const Dasshboard = () => {
+    const userValue = useSelector((state)=> state)
+    // console.log("userValue", userValue);
     const userMode = localStorage.getItem('userMode');
 
     const [hsurvey, sethsurvey] = useState({
