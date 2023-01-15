@@ -21,15 +21,16 @@ import { useFormik } from "formik";
 import { classNames } from "primereact/utils";
 import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
-import { useDispatch } from "react-redux";
-import {setLoginUserInfo} from '../../../redux/actions/loginAction'
+import {loginMode} from '../../../redux/action'
+import {useDispatch} from 'react-redux'
+// import {setLoginUserInfo} from '../../../redux/actions/loginAction'
 import './login.css'
 export let userMode;
 export let userModeValue;
 
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   
   const navigate = useNavigate();
   const hardcodedCred = {
     admin: {
@@ -85,7 +86,8 @@ const Login = () => {
       }
       localStorage.setItem("userMode", userMode);
       localStorage.setItem("userInfo", JSON.stringify(hardcodedCred));
-      dispatch(setLoginUserInfo(userMode));
+      const userValue = dispatch(loginMode(userMode))
+      // console.log("userValue", userValue);    
       return false;
     },
   });
