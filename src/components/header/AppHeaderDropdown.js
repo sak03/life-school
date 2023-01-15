@@ -14,9 +14,11 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { Avatar } from 'primereact/avatar';
+import { useSelector } from "react-redux";
 
 const AppHeaderDropdown = () => {
   const userMode = localStorage.getItem('userMode');
+  // const userMode = useSelector((state)=>state.userInfo.userModeValue);
   const userInfo1 = localStorage.getItem("userInfo");
   const userInfo = JSON.parse(userInfo1);
 

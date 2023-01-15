@@ -1,42 +1,29 @@
 import React, { useState, useRef, useMemo } from 'react'
-import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CContainer,
   CHeader,
-  CHeaderBrand,
   CHeaderDivider,
   CHeaderNav,
   CHeaderToggler,
   CNavLink,
   CNavItem,
-  CBadge,
 } from '@coreui/react'
-import {
-  FaUserAlt,
-  FaUniversity,
-  FaHouseUser,
-  FaBriefcase,
-  FaRegAddressCard,
-} from "react-icons/fa";
 import CIcon from '@coreui/icons-react'
-import { cilList, cilMenu } from '@coreui/icons'
+import { cilMenu } from '@coreui/icons'
 import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
-// import { logo } from 'src/assets/brand/logo'
-import logo from 'src/assets/images/AceScan_logo.png'
-// import logo from 'src/assets/images/SQ_logo.png'
-import { Badge } from 'primereact/badge';
-import { Link } from "react-router-dom";
+import { sidebarSow } from '../redux/action'
 import './appHeader.css'
-// import { userMode } from '../views/pages/login/Login'
 
 const AppHeader = () => {
   const userMode = localStorage.getItem('userMode');
+  // const userMode = useSelector((state)=>state.userInfo.userModeValue)
   const dispatch = useDispatch()
   const userInfo1 = localStorage.getItem("userInfo");
   const userInfo = JSON.parse(userInfo1);
-  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const sidebarShow = useSelector((state) => state.changeState.sidebarShow)
+  // console.log("sidebarValue", userMode)
 
   return (
     <>
@@ -45,7 +32,7 @@ const AppHeader = () => {
           <div className='d-flex justify-content-start'>
             <CHeaderToggler
               className="ps-1"
-              onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
+              onClick={() => dispatch(sidebarSow({type:'set', sidebarShow: !sidebarShow }))}
             >
                <CIcon icon={cilMenu} size="lg" />
               {/* {userMode != 1 && userMode == 3 ? <img src={logo} className="sidebar-brand-full" /> : ""} */}

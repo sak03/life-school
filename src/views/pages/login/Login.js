@@ -2,27 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
   CCol,
   CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
   CRow,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
 import logo from "../../../assets/images/AceScan_logo.png";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { classNames } from "primereact/utils";
 import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
-import {loginMode} from '../../../redux/action'
-import {useDispatch} from 'react-redux'
+import { loginMode } from '../../../redux/action'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 // import {setLoginUserInfo} from '../../../redux/actions/loginAction'
 import './login.css'
 export let userMode;
@@ -30,7 +22,9 @@ export let userModeValue;
 
 
 const Login = () => {
-  const dispatch = useDispatch();   
+  const dispatch = useDispatch();
+  let data = useSelector((state)=>state);
+// console.log("data", data)
   const navigate = useNavigate();
   const hardcodedCred = {
     admin: {
@@ -86,8 +80,7 @@ const Login = () => {
       }
       localStorage.setItem("userMode", userMode);
       localStorage.setItem("userInfo", JSON.stringify(hardcodedCred));
-      const userValue = dispatch(loginMode(userMode))
-      // console.log("userValue", userValue);    
+      dispatch(loginMode({userModeValue : userMode}))
       return false;
     },
   });
@@ -109,7 +102,7 @@ const Login = () => {
           style={{ position: "absolute", top: "2rem", left: "2rem" }}
         >
           {/* <a href="http://www.acescan.co/" target="blank" placeholder="visit"> */}
-            <img src={logo} alt="login" width={200} />
+          <img src={logo} alt="login" width={200} />
           {/* </a> */}
         </div>
         <CContainer>

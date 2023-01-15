@@ -6,9 +6,11 @@ import {
     FaMapMarkerAlt,
   } from "react-icons/fa";
   import { Divider } from 'primereact/divider';
+  import { useSelector } from "react-redux";
 
 const TeacherProfile = () => {
     const userMode = localStorage.getItem('userMode');
+    // const userMode = useSelector((state)=>state.userInfo.userModeValue);
     const userInfo1 = localStorage.getItem("userInfo");
     const userInfo = JSON.parse(userInfo1);
     return (

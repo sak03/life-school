@@ -1,1 +1,2 @@
 export const USER_LOGIN_MODE = "USER_LOGIN_MODE";
+export const SIDEBAR_SHOW = "SIDEBAR_SHOW"
