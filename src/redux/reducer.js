@@ -10,6 +10,6 @@ export const userInfo = (state = initialState, action) => {
             // console.log("reducer called", action);
             return action.value;
         default:
-            return initialState.value
+            return state
     }
 }

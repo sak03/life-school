@@ -15,8 +15,10 @@ import Chart from 'react-apexcharts'
 
 const Dasshboard = () => {
     const userMode = localStorage.getItem('userMode');
-    // const userMode = useSelector((state)=>state.userInfo.userModeValue);
-    // console.log("userMode dashboard", userMode);
+    const userInfo = useSelector((state)=>state.userLoginInfo);
+    const userMode1 = useSelector((state)=>state.userInfo);
+    console.log("userInfo", userInfo);
+    console.log("userMode1" ,userMode1)
     const [hsurvey, sethsurvey] = useState({
         series: [
             {

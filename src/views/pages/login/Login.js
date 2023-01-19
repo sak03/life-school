@@ -13,6 +13,7 @@ import { classNames } from "primereact/utils";
 import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
 import { loginMode } from '../../../redux/action'
+import {userLoginInfo} from '../../../redux/loginInfoAction'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 // import {setLoginUserInfo} from '../../../redux/actions/loginAction'
@@ -30,17 +31,23 @@ const Login = () => {
     admin: {
       email: 'admin@testmail.com',
       password: 'Admin@123',
-      name: "Prashant Vadhawa"
+      name: "Prashant Vadhawa",
+      role:"Admin",
+      status:"Active"
     },
     teacher: {
       email: 'teacher@testmail.com',
       password: 'Teacher@123',
-      name: "Mahfooz Saifi"
+      name: "Mahfooz Saifi",
+      role:"Teacher",
+      status:"Active"
     },
     student: {
       email: 'student@testmail.com',
       password: 'Student@123',
       name: "Sartaj Alam",
+      role:"Student",
+      status:"Active"
     },
   }
 
@@ -65,14 +72,20 @@ const Login = () => {
       if ((data.email === hardcodedCred.admin.email) && (data.password === hardcodedCred.admin.password)) {
         userMode = 1;
         navigate("/dashboard");
+        dispatch(loginMode({userModeValue : 1}))
+        dispatch(userLoginInfo(hardcodedCred.admin))
 
       } else if ((data.email === hardcodedCred.teacher.email) && (data.password === hardcodedCred.teacher.password)) {
         userMode = 2;
         navigate("/dashboard");
+        dispatch(loginMode({userModeValue : 2}))
+        dispatch(userLoginInfo(hardcodedCred.teacher))
       }
       else if ((data.email === hardcodedCred.student.email) && (data.password === hardcodedCred.student.password)) {
         userMode = 3;
         navigate("/dashboard");
+        dispatch(loginMode({userModeValue : 3}))
+        dispatch(userLoginInfo(hardcodedCred.student))
       }
       else {
         alert('Wrong email or password combination');
@@ -80,7 +93,6 @@ const Login = () => {
       }
       localStorage.setItem("userMode", userMode);
       localStorage.setItem("userInfo", JSON.stringify(hardcodedCred));
-      dispatch(loginMode({userModeValue : userMode}))
       return false;
     },
   });
