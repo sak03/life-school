@@ -1,7 +1,7 @@
 import React, { useState, Component, Suspense } from 'react'
-import { 
-  HashRouter, 
-  Route, 
+import {
+  HashRouter,
+  Route,
   Routes,
   Switch,
   BrowserRouter as Router,
@@ -10,6 +10,7 @@ import './scss/style.scss'
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
+import ProtectedRoutes from './auth/ProtectedRoutes';
 
 const loading = (
   <div className="pt-3 text-center">
@@ -30,14 +31,18 @@ class App extends Component {
       <HashRouter>
         <Suspense fallback={loading}>
           <Routes>
-            <Route  
-              path="/" 
-              name="Login Page" 
-              element={<Login/>}
-              // render={(props) => <Login {...props} />}
-              />
+            <Route
+              path="/"
+              name="Login Page"
+              element={<Login />}
+              render={(props) => <Login {...props} />}
+            />
             <Route exact path="/register" name="Register Page" element={<Register />} />
-            <Route  path="*" name="dashboard" element={<DefaultLayout/>} />
+            <Route exact path='/' element={<ProtectedRoutes />}>
+              <Route exact path="*" name="dashboard" element={<DefaultLayout />} />
+            </Route>
+            {/* <Route path="*" name="dashboard" element={<DefaultLayout />} /> */}
+            {/* <Route path='/' name="Login Page" element={<ProtectedRoutes />} /> */}
           </Routes>
         </Suspense>
       </HashRouter>

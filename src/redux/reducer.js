@@ -1,7 +1,7 @@
 import { USER_LOGIN_MODE } from './constants';
 
 const initialState = {
-    value: 0,
+    value: null,
 }
 
 export const userInfo = (state = initialState, action) => {
