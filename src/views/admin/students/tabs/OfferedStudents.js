@@ -11,7 +11,6 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import { Avatar } from 'primereact/avatar';
 
 const OfferedStudents = () => {
-  const [selection, setSelection] = useState(null);
   const [studentdata, setStudentData] = useState(null);
   const [showspinner, setshowspinner] = useState(false);
 

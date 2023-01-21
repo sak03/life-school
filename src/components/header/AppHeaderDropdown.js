@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CAvatar,
   CDropdown,
   CDropdownDivider,
   CDropdownHeader,
@@ -17,31 +16,24 @@ import { Avatar } from 'primereact/avatar';
 import { useSelector } from "react-redux";
 
 const AppHeaderDropdown = () => {
-  const userMode = localStorage.getItem('userMode');
-  // const userMode = useSelector((state)=>state.userInfo.userModeValue);
-  const userInfo1 = localStorage.getItem("userInfo");
-  const userInfo = JSON.parse(userInfo1);
+  const userMode = useSelector((state)=>state.userInfo.userModeValue);
+  const userInfo = useSelector((state)=>state.userLoginInfo);
 
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
-        {/* <CAvatar src={avatar8} size="md" />  */}
         <Avatar
-          label={userMode == 1 ?
-            userInfo?.admin?.name.charAt(0).toUpperCase() :
-            userMode == 2 ? userInfo?.teacher?.name.charAt(0).toUpperCase() :
-              userInfo?.student?.name.charAt(0).toUpperCase()}
+          label={userInfo?.name.charAt(0).toUpperCase()}
           className="p-2 my-1"
           size="small"
           shape="circle"
         />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownHeader className="bg-light fw-semibold py-2">{userMode == 1 ? "Admin" : userMode == 2 ? "Teacher" : "Student"}</CDropdownHeader>
-        {/* <CDropdownHeader className="bg-light fw-semibold py-2">{userMode == 1 ? userInfo?.admin?.name : userMode == 2 ? "Teacher" : "Student"}</CDropdownHeader> */}
+        <CDropdownHeader className="bg-light fw-semibold py-2">{userInfo?.role}</CDropdownHeader>
         <CDropdownItem>
           <CIcon icon={cilUser} className="me-2" />
-          {userMode == 1 ? userInfo?.admin?.name : userMode == 2 ? userInfo?.teacher?.name : userInfo?.student?.name}
+          {userInfo?.name}
         </CDropdownItem>
         <CDropdownDivider />
         <CDropdownItem >

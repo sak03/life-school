@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CContainer,
@@ -17,13 +17,12 @@ import { sidebarSow } from '../redux/action'
 import './appHeader.css'
 
 const AppHeader = () => {
-  const userMode = localStorage.getItem('userMode');
-  // const userMode = useSelector((state)=>state.userInfo.userModeValue)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const userInfo1 = localStorage.getItem("userInfo");
-  const userInfo = JSON.parse(userInfo1);
-  const sidebarShow = useSelector((state) => state.changeState.sidebarShow)
-  // console.log("sidebarValue", userMode)
+  // const userInfo = JSON.parse(userInfo1);
+  const sidebarShow = useSelector((state) => state.changeState.sidebarShow);
+  const userInfo = useSelector((state) => state.userLoginInfo);
+  // console.log("userInfo", userInfo)
 
   return (
     <>
@@ -32,24 +31,18 @@ const AppHeader = () => {
           <div className='d-flex justify-content-start'>
             <CHeaderToggler
               className="ps-1"
-              onClick={() => dispatch(sidebarSow({type:'set', sidebarShow: !sidebarShow }))}
+              onClick={() => dispatch(sidebarSow({ type: 'set', sidebarShow: !sidebarShow }))}
             >
-               <CIcon icon={cilMenu} size="lg" />
-              {/* {userMode != 1 && userMode == 3 ? <img src={logo} className="sidebar-brand-full" /> : ""} */}
+              <CIcon icon={cilMenu} size="lg" />
             </CHeaderToggler>
           </div>
           <div className='d-flex justify-content-center'>
           </div>
           <div className='d-flex justify-content-end'>
             <CHeaderNav>
-              {/* <CNavItem>
-                <CNavLink>
-                  <i className="pi pi-bell mr-4 p-text-secondary p-overlay-badge" style={{ fontSize: '1.25rem', cursor: 'pointer' }}><Badge value="3" severity="danger" style={{ fontSize: '0.7rem', width: '0.7rem' }}></Badge></i>
-                </CNavLink>
-              </CNavItem> */}
               <CNavItem>
                 <CNavLink >
-                {userMode == 1 ? userInfo?.admin?.name : userMode == 2 ? userInfo?.teacher?.name : userInfo?.student?.name}
+                  {userInfo?.name}
                 </CNavLink>
               </CNavItem>
             </CHeaderNav>

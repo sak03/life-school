@@ -5,11 +5,11 @@ import CandidatesTab from './tabs/AllStudents';
 import Offered from './tabs/OfferedStudents';
 import JoinedTab from './tabs/JoinedStudents';
 import Backouts from './tabs/RejectedStudents';
+import { useSelector } from 'react-redux';
 
 
 const Students = () => {
-  const userMode = localStorage.getItem('userMode');
-
+  const userMode = useSelector((state)=>state.userInfo.userModeValue);
 
   return (
     <div>

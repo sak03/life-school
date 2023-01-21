@@ -15,8 +15,6 @@ import { TabView, TabPanel } from 'primereact/tabview';
 const Staff = () => {
     const [viewMode, setViewMode] = useState(0);
     const [editMode, setEditMode] = useState(0);
-    const [billingChecked, setBillingChecked] = useState(false);
-    const [agencyType, setAgencyType] = useState("Individual");
     const [tenantLoading, setTenantLoading] = useState(false);
     const [showspinner, setshowspinner] = useState(false);
     const [tenantData1, settenantData1] = useState([]);

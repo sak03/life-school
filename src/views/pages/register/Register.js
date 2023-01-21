@@ -8,11 +8,9 @@ import {
   CForm,
   CFormInput,
   CInputGroup,
-  CInputGroupText,
   CRow,
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -46,17 +44,15 @@ const Register = () => {
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-4">
-                    {/* <CInputGroupText> */}
-                      {/* <CIcon icon={cilLockLocked} /> */}
-                    {/* </CInputGroupText> */}
                     <CFormInput
                       type="password"
                       placeholder="Repeat password"
                       autoComplete="new-password"
                     />
                   </CInputGroup>
-                  <div className="d-grid">
-                    <CButton color="success">Create Account</CButton>
+                  <div className="d-flex justify-content-between">
+                    <CButton color="secondary"><Link to='/login' style={{textDecoration:"none"}} className="text-light">Cancel</Link></CButton>
+                    <CButton color="primary">Create Account</CButton>
                   </div>
                 </CForm>
               </CCardBody>

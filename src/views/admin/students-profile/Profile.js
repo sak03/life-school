@@ -9,10 +9,8 @@ import { Divider } from 'primereact/divider';
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-  const userMode = localStorage.getItem('userMode');
-  // const userMode = useSelector((state)=>state.userInfo.userModeValue);
-  const userInfo1 = localStorage.getItem("userInfo");
-  const userInfo = JSON.parse(userInfo1);
+  const userInfo = useSelector((state)=>state.userLoginInfo);
+
   return (
     <div>
       <div className='row'>
@@ -27,7 +25,7 @@ const Profile = () => {
           </div>
           <div className="mx-3 mt-3">
             <p style={{ marginBottom: "0.5rem" }}>
-              <FaUserAlt /> &nbsp; <strong>{userInfo?.student?.name}</strong>
+              <FaUserAlt /> &nbsp; <strong>{userInfo?.name}</strong>
             </p>
             <p
               style={{ marginBottom: "0.5rem" }}
