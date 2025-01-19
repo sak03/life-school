@@ -14,10 +14,19 @@ import {
 import CIcon from '@coreui/icons-react'
 import { Avatar } from 'primereact/avatar';
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const AppHeaderDropdown = () => {
+    const navigate = useNavigate();
   const userMode = useSelector((state)=>state.userInfo.userModeValue);
   const userInfo = useSelector((state)=>state.userLoginInfo);
+
+  const handleLogOut = ()=>{
+    localStorage.removeItem('loginInfo');
+    localStorage.removeItem("userMode");
+    localStorage.removeItem("userInfo");
+    navigate('/')
+  }
 
   return (
     <CDropdown variant="nav-item">
@@ -38,9 +47,9 @@ const AppHeaderDropdown = () => {
         <CDropdownDivider />
         <CDropdownItem >
           <CIcon icon={cilLockLocked} className="me-2" />
-          <a href="#" rel="noopener noreferrer" className='text-dark' style={{textDecoration:"none"}}>
+          <span className='text-dark' style={{ textDecoration: "none", cursor: "pointer" }} onClick={handleLogOut}>
             Log out
-          </a>
+          </span>
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>

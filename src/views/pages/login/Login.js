@@ -74,18 +74,21 @@ const Login = () => {
         navigate("/dashboard");
         dispatch(loginMode({userModeValue : 1}))
         dispatch(userLoginInfo(hardcodedCred.admin))
+        localStorage.setItem('loginInfo', hardcodedCred.admin)
 
       } else if ((data.email === hardcodedCred.teacher.email) && (data.password === hardcodedCred.teacher.password)) {
         userMode = 2;
         navigate("/dashboard");
         dispatch(loginMode({userModeValue : 2}))
         dispatch(userLoginInfo(hardcodedCred.teacher))
+        localStorage.setItem('loginInfo', hardcodedCred.teacher)
       }
       else if ((data.email === hardcodedCred.student.email) && (data.password === hardcodedCred.student.password)) {
         userMode = 3;
         navigate("/dashboard");
         dispatch(loginMode({userModeValue : 3}))
         dispatch(userLoginInfo(hardcodedCred.student))
+        localStorage.setItem('loginInfo', hardcodedCred.student)
       }
       else {
         alert('Wrong email or password combination');

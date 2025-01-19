@@ -6,7 +6,8 @@ const ProtectedRoutes = () => {
   const userModeValue = useSelector((state) => state.userInfo);
   let modeValue = null;
   modeValue = useSelector((state) => state.userInfo.userModeValue);
-  // console.log("modeValue", modeValue)
+  const userInfo = localStorage.getItem('loginInfo')
+  console.log("userInfo", userInfo)
 
   return (
     modeValue != null ? (
